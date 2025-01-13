@@ -1,28 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultório de Nutrição</title>
-    <link rel="stylesheet" href="{{ asset('css/styleHome.css') }}">
-    <script src="{{ asset('js/jsHome.js') }}" defer></script>
-</head>
-<body>
-    <header>
-        <h1>Bem-vindo ao Sistema de Gestão NutriClinic</h1>
-    </header>
+@extends('layouts.app')
 
-    <nav>
-        <button class="hamburger" id="hamburger">☰</button>
-        <ul class="menu" id="menu">            
-            <li><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="{{ route('agendamento.create') }}">Agendamentos</a></li>
-            <li><a href="{{ route('pacientes.index') }}">Pacientes</a></li>
-            <li><a href="{{ route('relatorios') }}">Relatórios</a></li>
-            <li><a href="{{ route('configuracao')}}">Configurações</a></li>
-        </ul>
-    </nav>
+@section('title', 'Consultório de Nutrição')
 
+@section('content')
     <section class="hero">
         <h1>Cuidando da Sua Saúde</h1>
         <p>Organize seu consultório de maneira prática e eficiente.</p>
@@ -47,9 +27,4 @@
             </div>
         </section>
     </div>
-
-    <footer>
-        <p>&copy; 2025 NutriClinic. Todos os direitos reservados.</p>
-    </footer>
-</body>
-</html>
+@endsection

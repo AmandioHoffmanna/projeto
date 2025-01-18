@@ -17,7 +17,7 @@
             </div>
             <div class="feature">
                 <img src="/imagens/pacientes.png" alt="Pacientes">
-                <h2><a href="{{ route('pacientes.index') }}">Cadastro de Pacientes</a></h2>
+                <h2><a href="{{ route('pacientes.index') }}">Gerenciar Pacientes</a></h2>
                 <p>Tenha todas as informações de seus pacientes organizadas e seguras.</p>
             </div>
             <div class="feature">

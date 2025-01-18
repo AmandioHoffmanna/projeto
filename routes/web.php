@@ -32,8 +32,14 @@ Route::post('/agendamento', [AppointmentController::class, 'store'])->name('agen
 
 // Route::get('/pacientes', [PacientesController::class, 'Pacientes'])->name('pacientes');
 Route::get('/pacientes', [PacientesController::class, 'index'])->name('pacientes.index');
+Route::get('/pacientes/create', [PacientesController::class, 'create'])->name('pacientes.create');
+Route::post('/pacientes', [PacientesController::class, 'store'])->name('pacientes.store');
 Route::delete('/pacientes/{id}', [PacientesController::class, 'destroy'])->name('pacientes.destroy');
+Route::get('/pacientes/{id}/edit', [PacientesController::class, 'edit'])->name('pacientes.edit');
+Route::post('/pacientes', [PacientesController::class, 'salvar'])->name('pacientes.salvar');
+
 Route::get('/relatorios', [RelatoriosController::class, 'relatorios'])->name('relatorios');
+
 route::get('/configuracao', [ConfiguracaoController::class, 'configuracao'])->name('configuracao');
 
 require __DIR__.'/auth.php';

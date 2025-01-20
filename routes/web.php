@@ -24,8 +24,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-route::get('/usuarios', [UserController::class, 'index']);
 Route::get('/home', [HomePageController::class, 'home'])->name('home');
+
+Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios.index');
+Route::get('/usuarios/create', [UserController::class, 'create'])->name('usuarios.create');
+Route::post('/usuarios', [UserController::class, 'store'])->name('usuarios.store'); // Salvar o novo usuário
+Route::get('/usuarios/{id}/edit', [UserController::class, 'edit'])->name('usuarios.edit');
+Route::put('/usuarios/{id}', [UserController::class, 'update'])->name('usuarios.update');
+Route::delete('/usuarios/{id}', [UserController::class, 'destroy'])->name('usuarios.destroy');
+
+
+
+
 // Route::get('/agendamentos', [AppointmentController::class, 'Agendamento'])->name('agendamentos');
 Route::get('/agendamento', [AppointmentController::class, 'create'])->name('agendamento.create');
 Route::post('/agendamento', [AppointmentController::class, 'store'])->name('agendamento.store');

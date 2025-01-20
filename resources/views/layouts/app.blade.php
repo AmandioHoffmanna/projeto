@@ -28,6 +28,7 @@
             <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="{{ route('agendamento.create') }}">Agendamentos</a></li>
             <li><a href="{{ route('pacientes.index') }}">Pacientes</a></li>
+            <li><a href="{{ route('usuarios.index') }}">Usuários</a></li>
             <li><a href="{{ route('relatorios') }}">Relatórios</a></li>
             <li><a href="{{ route('configuracao')}}">Configurações</a></li>
         </ul>

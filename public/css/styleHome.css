@@ -1,3 +1,4 @@
+/* Estilização global */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -9,6 +10,7 @@ body {
     min-height: 100vh;
 }
 
+/* Header */
 header {
     background-color: #4CAF50;
     color: white;
@@ -16,45 +18,77 @@ header {
     text-align: center;
 }
 
+/* Navegação */
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Alinha menu e botões */
     align-items: center;
     background-color: #fff;
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Botão de menu (hamburger) */
 nav .hamburger {
-    display: none;
+    display: none; /* Escondido por padrão */
     font-size: 1.5rem;
     background: none;
     border: none;
     cursor: pointer;
-    justify-content: left;
 }
 
+/* Menu principal */
 nav .menu {
     list-style: none;
     display: flex;
-    text-align: center;
+    justify-content: center; /* Centraliza o menu */
     gap: 15px;
     margin: 0;
     padding: 0;
+    flex: 1;
 }
 
 nav .menu a {
     text-decoration: none;
     color: #4CAF50;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-nav .menu.open {
+nav .menu a:hover {
+    color: #2d8a3b;
+}
+
+/* Botões de autenticação */
+.auth-buttons {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 10px;
 }
 
+.auth-buttons .btn {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff; /* Azul */
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-buttons .btn:hover {
+    background-color: #0056b3; /* Azul escuro */
+}
+
+.auth-buttons form {
+    margin: 0;
+}
+
+/* Hero Section */
 .hero {
     text-align: center;
     padding: 50px 20px;
@@ -73,12 +107,14 @@ nav .menu.open {
     margin-top: 0;
 }
 
+/* Container */
 .container {
     max-width: 1200px;
     margin: 20px auto;
     padding: 0 20px;
 }
 
+/* Features */
 .features {
     display: flex;
     flex-wrap: wrap;
@@ -99,6 +135,7 @@ nav .menu.open {
     margin-bottom: 10px;
 }
 
+/* Footer */
 footer {
     background-color: #4CAF50;
     color: white;
@@ -109,39 +146,35 @@ footer {
     width: 100%;
 }
 
+/* Responsividade */
 @media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
     nav .hamburger {
-        display: block;
+        display: block; /* Botão aparece em telas menores */
     }
 
     nav .menu {
-        display: none;
+        display: none; /* Escondido por padrão */
         flex-direction: column;
+        gap: 10px;
         background-color: #fff;
         position: absolute;
         top: 60px;
         left: 0;
         width: 100%;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
     }
 
     nav .menu.open {
-        display: flex;
+        display: flex; /* Abre o menu */
     }
 
-    .features {
-        flex-direction: column;
-    }
-
-    .feature {
-        flex: 1 1 100%;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
+    nav .auth-buttons {
+        justify-content: flex-end;
+        margin-top: 10px;
     }
 }

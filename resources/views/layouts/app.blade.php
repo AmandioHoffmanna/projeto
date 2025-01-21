@@ -31,17 +31,17 @@
             <li><a href="{{ route('usuarios.index') }}">Usuários</a></li>
             <li><a href="{{ route('relatorios') }}">Relatórios</a></li>
             <li><a href="{{ route('configuracao') }}">Configurações</a></li>
-            <li>
-                @auth
-                <form method="POST" action="{{ route('logout') }}" style="display: inline;">
-                    @csrf
-                    <button type="submit" class="btn-link" style="border: none; background: none; cursor: pointer;">Sair</button>
-                </form>
-                @else
-                <a href="{{ route('login') }}">Login</a>
-                @endauth
-            </li>
         </ul>
+        <div class="auth-buttons">
+            @auth
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="btn">Sair</button>
+            </form>
+            @else
+            <a href="{{ route('login') }}" class="btn">Login</a>
+            @endauth
+        </div>
     </nav>
 
     <div class="min-h-screen bg-gray-100">

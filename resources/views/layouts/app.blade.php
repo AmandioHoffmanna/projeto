@@ -1,54 +1,36 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'NutriClinic')</title> {{-- Define o título dinâmico --}}
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <!-- CSS Principal -->
-    <link rel="stylesheet" href="{{ asset('css/styleHome.css') }}">
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+            @include('layouts.navigation')
 
-    <!-- Área para adicionar estilos específicos de cada página -->
-    @stack('styles')
-</head>
-<body class="font-sans antialiased">
-    <header>
-        <h1>Bem-vindo ao Sistema de Gestão NutriClinic</h1>
-    </header>
+            <!-- Page Heading -->
+            @isset($header)
+                <header class="bg-white dark:bg-gray-800 shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endisset
 
-    <nav>
-        <button class="hamburger" id="hamburger">☰</button>
-        <ul class="menu" id="menu">            
-            <li><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="{{ route('agendamento.create') }}">Agendamentos</a></li>
-            <li><a href="{{ route('pacientes.index') }}">Pacientes</a></li>
-            <li><a href="{{ route('usuarios.index') }}">Usuários</a></li>
-            <li><a href="{{ route('relatorios') }}">Relatórios</a></li>
-            <li><a href="{{ route('configuracao')}}">Configurações</a></li>
-        </ul>
-    </nav>
-
-    <div class="min-h-screen bg-gray-100">
-        <!-- Page Content -->
-        <main>
-            @yield('content')
-        </main>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 NutriClinic. Todos os direitos reservados.</p>
-    </footer>
-
-    <!-- Script Principal -->
-    <script src="{{ asset('js/jsHome.js') }}" defer></script>
-
-    <!-- Área para adicionar scripts específicos de cada página -->
-    @stack('scripts')
-</body>
+            <!-- Page Content -->
+            <main>
+                @yield('content')
+            </main>
+        </div>
+    </body>
 </html>

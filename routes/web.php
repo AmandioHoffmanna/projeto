@@ -33,20 +33,18 @@ Route::get('/usuarios/{id}/edit', [UserController::class, 'edit'])->name('usuari
 Route::put('/usuarios/{id}', [UserController::class, 'update'])->name('usuarios.update');
 Route::delete('/usuarios/{id}', [UserController::class, 'destroy'])->name('usuarios.destroy');
 
-
-
-
 // Route::get('/agendamentos', [AppointmentController::class, 'Agendamento'])->name('agendamentos');
 Route::get('/agendamento', [AppointmentController::class, 'create'])->name('agendamento.create');
 Route::post('/agendamento', [AppointmentController::class, 'store'])->name('agendamento.store');
 
-// Route::get('/pacientes', [PacientesController::class, 'Pacientes'])->name('pacientes');
 Route::get('/pacientes', [PacientesController::class, 'index'])->name('pacientes.index');
 Route::get('/pacientes/create', [PacientesController::class, 'create'])->name('pacientes.create');
+Route::post('/pacientes/associarUsuario', [PacientesController::class, 'associarUsuario'])->name('pacientes.associarUsuario');
 Route::post('/pacientes', [PacientesController::class, 'store'])->name('pacientes.store');
 Route::delete('/pacientes/{id}', [PacientesController::class, 'destroy'])->name('pacientes.destroy');
 Route::get('/pacientes/{id}/edit', [PacientesController::class, 'edit'])->name('pacientes.edit');
 Route::post('/pacientes', [PacientesController::class, 'salvar'])->name('pacientes.salvar');
+
 
 Route::get('/relatorios', [RelatoriosController::class, 'relatorios'])->name('relatorios');
 

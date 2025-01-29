@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,10 +14,14 @@
 
     <!-- CSS Principal -->
     <link rel="stylesheet" href="{{ asset('css/styleHome.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 
     <!-- Área para adicionar estilos específicos de cada página -->
     @stack('styles')
 </head>
+
 <body class="font-sans antialiased">
     <header>
         <h1>Bem-vindo ao Sistema de Gestão NutriClinic</h1>
@@ -61,4 +66,5 @@
     <!-- Área para adicionar scripts específicos de cada página -->
     @stack('scripts')
 </body>
+
 </html>

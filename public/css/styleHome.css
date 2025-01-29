@@ -146,6 +146,25 @@ footer {
     width: 100%;
 }
 
+    /* Alterar a cor das setas do carrossel */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: #007bff; /* Cor azul padrão */
+        border-radius: 50%; /* Opcional: arredondar as bordas */
+        width: 3rem; /* Ajustar o tamanho */
+        height: 3rem;
+    }
+
+    .carousel-control-prev-icon:hover,
+    .carousel-control-next-icon:hover {
+        background-color: #0056b3; /* Cor ao passar o mouse */
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)); /* Adicionar sombra às setas */
+    }
+
 /* Responsividade */
 @media (max-width: 768px) {
     nav {

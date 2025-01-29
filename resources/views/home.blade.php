@@ -3,27 +3,58 @@
 @section('title', 'Consultório de Nutrição')
 
 @section('content')
-    <section class="hero">
-        <h1>Cuidando da Sua Saúde</h1>
-        <p>Organize seu consultório de maneira prática e eficiente.</p>
-    </section>
-
     <div class="container">
-        <section class="features">
-            <div class="feature">
-                <img src="/imagens/agenda.png" alt="Agenda">
-                <h2><a href="{{ route('agendamento.create') }}">Gerenciamento de Agendas</a></h2>
-                <p>Planeje suas consultas com facilidade e evite conflitos de horários.</p>
+        <section class="carousel-section">
+            <!-- Texto acima do carrossel -->
+            <div class="text-center mb-4">
+                <h2>Bem-vindo ao NutriClinic</h2>
+                <p>Nosso sistema facilita a organização de agendamentos, relatórios e informações dos seus pacientes.</p>
             </div>
-            <div class="feature">
-                <img src="/imagens/pacientes.png" alt="Pacientes">
-                <h2><a href="{{ route('pacientes.index') }}">Gerenciar Pacientes</a></h2>
-                <p>Tenha todas as informações de seus pacientes organizadas e seguras.</p>
+
+            <!-- Carrossel com tamanho ajustado -->
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" style="max-width: 1000px; margin: 0 auto;">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="imagens/agenda.png" class="d-block w-100" alt="Slide 1" style="height: 300px; object-fit: contain;">
+                            </div>
+                            <div class="col-md-4">
+                                <img src="imagens/img_lorem.png" class="d-block w-100" alt="Slide 2" style="height: 300px; object-fit: contain;">
+                            </div>
+                            <div class="col-md-4">
+                                <img src="imagens/relatorio.png" class="d-block w-100" alt="Slide 3" style="height: 300px; object-fit: contain;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="imagens/img_lorem.png" class="d-block w-100" alt="Slide 4" style="height: 300px; object-fit: contain;">
+                            </div>
+                            <div class="col-md-4">
+                                <img src="imagens/agenda.png" class="d-block w-100" alt="Slide 5" style="height: 300px; object-fit: contain;">
+                            </div>
+                            <div class="col-md-4">
+                                <img src="imagens/img_lorem.png" class="d-block w-100" alt="Slide 6" style="height: 300px; object-fit: contain;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <div class="feature">
-                <img src="/imagens/relatorio.png" alt="Relatórios">
-                <h2><a href="{{ route('relatorios') }}">Relatórios Detalhados</a></h2>
-                <p>Visualize e analise dados importantes do consultório.</p>
+
+            <!-- Texto abaixo do carrossel -->
+            <div class="text-center mt-4">
+                <h3>Comece Agora Mesmo</h3>
+                <p>Explore as funcionalidades do sistema para gerenciar seu consultório de forma rápida e eficaz.</p>
             </div>
         </section>
     </div>

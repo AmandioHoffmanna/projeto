@@ -31,7 +31,7 @@
         <button class="hamburger" id="hamburger">☰</button>
         <ul class="menu" id="menu">
             <li><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="{{ route('agendamento.create') }}">Agendamentos</a></li>
+            <li><a href="{{ route('agenda.index') }}">Agenda</a></li>
             <li><a href="{{ route('pacientes.index') }}">Pacientes</a></li>
             <li><a href="{{ route('usuarios.index') }}">Usuários</a></li>
             <li><a href="{{ route('relatorios') }}">Relatórios</a></li>

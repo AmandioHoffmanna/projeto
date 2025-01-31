@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ConfiguracaoController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\PacientesController;
@@ -8,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RelatoriosController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AgendaController;
 
 Route::get('/', function () {
     return view('home');
@@ -29,9 +29,14 @@ Route::get('/usuarios/{id}/edit', [UserController::class, 'edit'])->name('usuari
 Route::put('/usuarios/{id}', [UserController::class, 'update'])->name('usuarios.update');
 Route::delete('/usuarios/{id}', [UserController::class, 'destroy'])->name('usuarios.destroy');
 
-// Route::get('/agendamentos', [AppointmentController::class, 'Agendamento'])->name('agendamentos');
-Route::get('/agendamento', [AppointmentController::class, 'create'])->name('agendamento.create');
-Route::post('/agendamento', [AppointmentController::class, 'store'])->name('agendamento.store');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda.index');
+    Route::get('/agenda/eventos', [AgendaController::class, 'getEventos'])->name('agenda.eventos');
+    Route::post('/agenda/criar', [AgendaController::class, 'criar'])->name('agenda.criar');
+    Route::post('/agenda/editar/{id}', [AgendaController::class, 'editar'])->name('agenda.editar');
+    Route::delete('/agenda/excluir/{id}', [AgendaController::class, 'excluir'])->name('agenda.excluir');
+});
+
 
 Route::get('/pacientes', [PacientesController::class, 'index'])->name('pacientes.index');
 Route::get('/pacientes/create', [PacientesController::class, 'create'])->name('pacientes.create');

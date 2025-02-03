@@ -17,6 +17,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+ <!-- Bootstrap 5 -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    
 
     <!-- Área para adicionar estilos específicos de cada página -->
     @stack('styles')
@@ -59,6 +63,9 @@
     <footer>
         <p>&copy; 2025 NutriClinic. Todos os direitos reservados.</p>
     </footer>
+
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Script Principal -->
     <script src="{{ asset('js/jsHome.js') }}" defer></script>

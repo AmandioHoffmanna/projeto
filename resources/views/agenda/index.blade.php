@@ -18,8 +18,6 @@
     </div>
     @endif
 
-    <button class="btn btn-primary mb-3" id="adicionarCompromisso">Adicionar Compromisso</button>
-
     <div id="mensagemVazia" style="display: none; text-align: center;" class="alert alert-info">
         Nenhum compromisso encontrado.
     </div>
@@ -72,8 +70,6 @@
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    console.log("Iniciando calendário...");
-
     var calendarioEl = document.getElementById('calendario');
     var mensagemVaziaEl = document.getElementById('mensagemVazia');
 
@@ -81,42 +77,66 @@ document.addEventListener('DOMContentLoaded', function () {
         initialView: 'dayGridMonth',
         locale: 'pt-br',
         events: '/agenda/eventos',
+        editable: true,
         eventSourceSuccess: function (content) {
-            if (content.length === 0) {
-                mensagemVaziaEl.style.display = "block"; // Exibe a mensagem
-            } else {
-                mensagemVaziaEl.style.display = "none"; // Esconde a mensagem
-            }
+            mensagemVaziaEl.style.display = content.length === 0 ? "block" : "none";
             return content;
         },
         dateClick: function (info) {
             console.log("Data clicada:", info.dateStr);
-            $('#modalCompromisso').modal('show');
+
+            var modalElement = document.getElementById('modalCompromisso');
+            var modal = new bootstrap.Modal(modalElement);
+            modal.show();
+
             document.getElementById('formCompromisso').reset();
             document.getElementById('inicio').value = info.dateStr + 'T00:00'; // Preenche a data no modal
         },
         eventClick: function (info) {
             console.log("Evento clicado:", info.event);
-            $('#modalCompromisso').modal('show');
+
+            var modalElement = document.getElementById('modalCompromisso');
+            var modal = new bootstrap.Modal(modalElement);
+            modal.show();
+
             document.getElementById('titulo').value = info.event.title;
-            document.getElementById('descricao').value = info.event.extendedProps.descricao || '';
+            document.getElementById('descricao').value = info.event.extendedProps.description || '';
             document.getElementById('inicio').value = info.event.start.toISOString().slice(0, 16);
             document.getElementById('fim').value = info.event.end ? info.event.end.toISOString().slice(0, 16) : '';
-            document.getElementById('excluirCompromisso').style.display = "block"; // Exibe o botão de excluir
+            document.getElementById('excluirCompromisso').style.display = "block";
+        },
+        eventDrop: function (info) {
+            atualizarCompromisso(info.event);
+        },
+        eventResize: function (info) {
+            atualizarCompromisso(info.event);
         }
     });
 
     calendario.render();
 
-    document.getElementById('adicionarCompromisso').addEventListener('click', function () {
-        $('#modalCompromisso').modal('show');
-        document.getElementById('formCompromisso').reset();
-        document.getElementById('excluirCompromisso').style.display = "none"; // Esconde o botão de excluir
-    });
+    document.getElementById('formCompromisso').addEventListener('submit', function (e) {
+        e.preventDefault();
 
-    document.getElementById('filtroUsuario').addEventListener('change', function () {
-        console.log("Usuário filtrado:", this.value);
-        calendario.refetchEvents();
+        var formData = new FormData(this);
+        var isEdit = document.getElementById('excluirCompromisso').style.display === "block";
+        var url = isEdit ? `/agenda/editar/${formData.get('id')}` : '/agenda/criar';
+
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Sucesso:', data);
+            var modalElement = document.getElementById('modalCompromisso');
+            var modal = bootstrap.Modal.getInstance(modalElement);
+            modal.hide();
+            calendario.refetchEvents();
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
     });
 });
 </script>

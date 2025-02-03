@@ -13,9 +13,7 @@ return new class extends Migration
     {
         Schema::table('agenda', function (Blueprint $table) {
             // Adicionando novas colunas
-            $table->string('titulo', 255)->after('id')->nullable(false);
-            $table->timestamp('inicio')->after('titulo')->nullable(false);
-            $table->timestamp('fim')->after('inicio')->nullable(false);
+            $table->timestamp('fim')->nullable()->after('inicio');
 
             // Removendo a coluna desnecessária
             $table->dropColumn('data_horario');
@@ -29,8 +27,6 @@ return new class extends Migration
     {
         Schema::table('agenda', function (Blueprint $table) {
             // Revertendo as alterações
-            $table->dropColumn('titulo');
-            $table->dropColumn('inicio');
             $table->dropColumn('fim');
             $table->timestamp('data_horario')->nullable();
         });

@@ -20,7 +20,7 @@
                                 <img src="imagens/agenda.png" class="d-block w-100" alt="Slide 1" style="height: 300px; object-fit: contain;">
                             </div>
                             <div class="col-md-4">
-                                <img src="imagens/img_lorem.png" class="d-block w-100" alt="Slide 2" style="height: 300px; object-fit: contain;">
+                                <img src="imagens/aid.png" class="d-block w-100" alt="Slide 2" style="height: 300px; object-fit: contain;">
                             </div>
                             <div class="col-md-4">
                                 <img src="imagens/relatorio.png" class="d-block w-100" alt="Slide 3" style="height: 300px; object-fit: contain;">
@@ -30,13 +30,13 @@
                     <div class="carousel-item">
                         <div class="row">
                             <div class="col-md-4">
-                                <img src="imagens/img_lorem.png" class="d-block w-100" alt="Slide 4" style="height: 300px; object-fit: contain;">
+                                <img src="imagens/agenda.png" class="d-block w-100" alt="Slide 4" style="height: 300px; object-fit: contain;">
                             </div>
                             <div class="col-md-4">
-                                <img src="imagens/agenda.png" class="d-block w-100" alt="Slide 5" style="height: 300px; object-fit: contain;">
+                                <img src="imagens/aid.png" class="d-block w-100" alt="Slide 5" style="height: 300px; object-fit: contain;">
                             </div>
                             <div class="col-md-4">
-                                <img src="imagens/img_lorem.png" class="d-block w-100" alt="Slide 6" style="height: 300px; object-fit: contain;">
+                                <img src="imagens/relatorio.png" class="d-block w-100" alt="Slide 6" style="height: 300px; object-fit: contain;">
                             </div>
                         </div>
                     </div>
